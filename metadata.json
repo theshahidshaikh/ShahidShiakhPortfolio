@@ -1,0 +1,8 @@
+{
+  "name": "Shahid Himmat Shaikh Portfolio",
+  "description": "A high-performance, professional AI/ML engineer portfolio website featuring project showcases, experience timeline, and an interactive Gemini-powered AI assistant to answer questions about Shahid's professional background.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

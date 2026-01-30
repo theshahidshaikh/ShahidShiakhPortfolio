@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahid Himmat Shaikh | AI & ML Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #000000;
+            --google-blue: #4285F4;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC05;
+            --google-green: #34A853;
+            --gemini-blue: #1a73e8;
+            --gemini-cyan: #4fc3f7;
+            --gemini-purple: #9c27b0;
+            --gemini-pink: #ff4081;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Aurora Morphing Animations */
+        @keyframes drift-slow {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            50% { transform: translate(10vw, 15vh) rotate(180deg) scale(1.1); }
+            100% { transform: translate(0, 0) rotate(360deg) scale(1); }
+        }
+
+        @keyframes drift-fast {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            50% { transform: translate(-15vw, -10vh) rotate(-180deg) scale(1.2); }
+            100% { transform: translate(0, 0) rotate(-360deg) scale(1); }
+        }
+
+        /* New Animations for new shapes */
+        @keyframes drift-horizontal {
+            0% { transform: translateX(-100vw) translateY(0); }
+            100% { transform: translateX(100vw) translateY(5vh); }
+        }
+        
+        @keyframes pulse-spark {
+            0%, 100% { opacity: 0.1; transform: scale(0.8) rotate(0deg); }
+            50% { opacity: 0.25; transform: scale(1.1) rotate(20deg); }
+        }
+
+        .ai-glow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .aurora-base {
+            position: absolute;
+            filter: blur(120px);
+            mix-blend-mode: screen;
+        }
+
+        .aurora-blob {
+            width: 65vw;
+            height: 65vw;
+            border-radius: 50%;
+            opacity: 0.22;
+        }
+
+        .aurora-1 {
+            background: radial-gradient(circle at center, var(--google-blue), transparent 70%);
+            top: -15%;
+            left: -15%;
+            animation: drift-slow 35s linear infinite;
+        }
+
+        .aurora-2 {
+            background: radial-gradient(circle at center, var(--gemini-purple), transparent 70%);
+            bottom: -15%;
+            right: -15%;
+            animation: drift-fast 40s linear infinite;
+        }
+
+        .aurora-3 {
+            background: radial-gradient(circle at center, var(--gemini-cyan), transparent 70%);
+            top: 25%;
+            right: -20%;
+            width: 50vw;
+            height: 50vw;
+            opacity: 0.15;
+            animation: drift-slow 45s linear infinite reverse;
+        }
+
+        .aurora-4 {
+            background: radial-gradient(circle at center, var(--google-red), transparent 70%);
+            bottom: 15%;
+            left: 5%;
+            width: 45vw;
+            height: 45vw;
+            opacity: 0.12;
+            animation: drift-fast 30s linear infinite;
+        }
+
+        .aurora-5 {
+            background: radial-gradient(circle at center, var(--google-yellow), transparent 70%);
+            top: 40%;
+            left: 30%;
+            width: 40vw;
+            height: 40vw;
+            opacity: 0.08;
+            animation: drift-slow 50s linear infinite;
+        }
+
+        /* New Shape: Streak */
+        .aurora-streak {
+            width: 150vw;
+            height: 15vh;
+            border-radius: 50% / 100%;
+            opacity: 0.1;
+            background: linear-gradient(90deg, transparent, var(--google-green), transparent);
+            top: 60%;
+            left: 0;
+            animation: drift-horizontal 65s linear infinite;
+        }
+
+        /* New Shape: Spark */
+        .aurora-spark {
+            width: 30vw;
+            height: 30vw;
+            border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
+            background: radial-gradient(circle at center, var(--gemini-pink), transparent 60%);
+            top: 10%;
+            right: 15%;
+            animation: pulse-spark 15s ease-in-out infinite, drift-slow 60s linear infinite reverse;
+        }
+
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal-visible {
+            animation: revealUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .reveal-hidden {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        .hover-glitch:hover {
+            animation: glitch 0.3s linear infinite;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #202124;
+            border-radius: 10px;
+        }
+
+        /* -- AI Chat Button Animations -- */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 25px rgba(79, 143, 247, 0.4), 0 0 40px rgba(156, 39, 176, 0.2); }
+            50% { box-shadow: 0 0 45px rgba(79, 143, 247, 0.7), 0 0 65px rgba(156, 39, 176, 0.4); }
+        }
+
+        .ai-chat-button-pulse {
+            animation: pulse-glow 4s infinite ease-in-out;
+        }
+
+        /* Animated Gradient Border */
+        .ai-chat-button-ripple::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            inset: -2px; /* Border thickness */
+            border-radius: 9999px; /* Matches button's rounded-full */
+            background: conic-gradient(from 180deg at 50% 50%, var(--gemini-cyan), var(--gemini-purple), var(--google-blue), var(--gemini-cyan)) border-box;
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: rotate-border 5s linear infinite;
+        }
+
+        @keyframes rotate-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .text-gradient-ai {
+            background: linear-gradient(90deg, #4285F4, #9c27b0, #4fc3f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body class="min-h-screen">
+    <div class="ai-glow-container">
+        <!-- Circular Blobs -->
+        <div class="aurora-base aurora-blob aurora-1"></div>
+        <div class="aurora-base aurora-blob aurora-2"></div>
+        <div class="aurora-base aurora-blob aurora-3"></div>
+        <div class="aurora-base aurora-blob aurora-4"></div>
+        <div class="aurora-base aurora-blob aurora-5"></div>
+        <!-- New Shapes -->
+        <div class="aurora-base aurora-streak"></div>
+        <div class="aurora-base aurora-spark"></div>
+    </div>
+    <div id="root"></div>
+</body>
+</html>
